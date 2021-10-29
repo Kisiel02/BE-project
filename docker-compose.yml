@@ -4,7 +4,7 @@ services:
    ps1_db:
      image: mysql:5.7
      volumes:
-       - /var/lib/mysql
+       - ./db:/var/lib/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: admin
@@ -33,7 +33,7 @@ services:
        - "8080:80"
      restart: always
      environment:
-       PS_INSTALL_AUTO: 1
+       PS_INSTALL_AUTO: 0
        PS_ERASE_DB: 0
        DB_SERVER: ps1_db
        DB_USER: ps
@@ -41,12 +41,5 @@ services:
        DB_NAME: ps
        PS_DEV_MODE: 0
        PS_DOMAIN: localhost:8080
-       PS_FOLDER_ADMIN: admin123
-       PS_FOLDER_INSTALL: install123
-       ADMIN_MAIL: test@prestashop.com
-       ADMIN_PASSWD: 12345678
      volumes:
-       - /var/www/html
-       - ./my_module:/var/www/html/modules/my_module
-       - ./my_theme:/var/www/html/themes/my_theme
-       - ./override:/var/www/html/override
+       - ./src:/var/www/html
