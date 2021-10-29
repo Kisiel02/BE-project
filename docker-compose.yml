@@ -4,7 +4,7 @@ services:
    ps1_db:
      image: mysql:5.7
      volumes:
-       - ./db:/var/lib/mysql
+       - ./db:/docker-entrypoint-initdb.d
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: admin
