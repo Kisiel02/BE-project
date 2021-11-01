@@ -2,7 +2,7 @@ version: '3.3'
 
 services: 
   prestashop:
-    image: <image_name>
+    image: prestashop/prestashop:1.7.1.0
     ports:
       - 80:80
       - 443:443
